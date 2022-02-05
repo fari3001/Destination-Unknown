@@ -5,7 +5,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Rating from '@material-ui/core';
 import useStyles from './styles'
 
-const Map = ({ setCoordinates, setBounds, coordinates }) =>  {
+const Map = ({ setCoordinates, setBounds, coordinates, places }) =>  {
     const classes = useStyles();
     const isMobile = useMediaQuery('(min-width:600px)')
 
@@ -26,7 +26,15 @@ const Map = ({ setCoordinates, setBounds, coordinates }) =>  {
             }}
             onChildClick={''}
           >
+            {places?.map(() => (
+              <div
+              className={classes.markerContainer}
+              lat={place.lat}
+              >
 
+
+              </div>
+            ))}
           </GoogleMapReact>
       </div>
   )
