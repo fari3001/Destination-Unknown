@@ -9,7 +9,6 @@ import { PlaceSharp } from '@mui/icons-material';
 
 export default function PlaceDetails({place}) {
   const classes = useStyles();
-    console.log(place.phone)
 
   return (
     <Card elevation={6}>
