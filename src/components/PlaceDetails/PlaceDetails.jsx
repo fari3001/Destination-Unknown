@@ -7,7 +7,7 @@ import Rating from '@material-ui/core';
 import useStyles from './styles.js'
 import { PlaceSharp } from '@mui/icons-material';
 
-export default function PlaceDetails({place}) {
+export default function PlaceDetails({place, type}) {
   const classes = useStyles();
 
   return (
@@ -49,6 +49,7 @@ export default function PlaceDetails({place}) {
                     {place.phone}
                 </Typography>
             )}
+
             <CardActions>
                 <Button size="small" color="primary" onClick={() => window.open(place.web_url, '_blank')}>
                         Destination Unknown

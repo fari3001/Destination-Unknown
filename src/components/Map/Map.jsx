@@ -9,7 +9,6 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) =>  {
     const classes = useStyles();
     const isDesktop = useMediaQuery('(min-width:600px)')
 
-    console.log(places)
     
   return (
       <div className={classes.mapContainer}>
@@ -21,7 +20,6 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) =>  {
             margin={[50,50,50,50]}
             options={''}
             onChange={(e) => {
-              console.log(e)
               setCoordinates({ lat: e.center.lat, lng: e.center.lng })
               setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw })
             }}

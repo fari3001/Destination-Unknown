@@ -3,10 +3,8 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import useStyles from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails'
 
-export default function List({ places }) {
+export default function List({ places, type, setType, rating, setRating }) {
   const classes = useStyles(); 
-  const [type, setType] = useState('restaurants');
-  const [rating, setRating] = useState(' ');
 
   return (
     <div className={classes.container}>
@@ -31,11 +29,14 @@ export default function List({ places }) {
         </Select>
       </FormControl>
       <Grid container spacing={3} className={classes.list}>
-        {places?.map((place, i) => (
+      {
+        places?.map((place, i) => (
           <Grid item key={i} xs={12}>
-              <PlaceDetails place={place} />
+              <PlaceDetails place={place} type={type}/>
           </Grid>
-        ))}
+        ))
+      } 
+       
       </Grid>
     </div>
   )
