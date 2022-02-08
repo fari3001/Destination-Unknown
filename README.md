@@ -8,6 +8,7 @@ The aim of this application is built around the focus of informing the user of n
 
 ### Link to Page
 
+The API Client has issued a 400 (unauthorised accsess). Currently working this out with the client provider.
 Website Link: https://pensive-newton-160527.netlify.app/
 
 
