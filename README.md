@@ -8,7 +8,7 @@ The aim of this application is built around the focus of informing the user of n
 
 ### Link to Page
 
-**The API Client has issued a 400 (unauthorised accsess). Currently working this out with the client provider. No location data will reflect on the page till this issue is resolved.** 
+**The API Client has issued a 400 (unauthorised access). Currently working this out with the client provider. No location data will reflect on the page till this issue is resolved.** 
 
 Website Link: https://pensive-newton-160527.netlify.app/
 
