@@ -5,9 +5,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import Rating from '@material-ui/core';
 
 import useStyles from './styles.js'
-import { PlaceSharp } from '@mui/icons-material';
+import PlaceSharpIcon from '@mui/icons-material/PlaceSharp';
 
-export default function PlaceDetails({place, type}) {
+export default function PlaceDetails({place}) {
   const classes = useStyles();
 
   return (

@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import Map from './components/Map/Map'
 import List from './components/List/List'
 import { getPlacesData } from './api'
+import { flexbox } from '@mui/system';
 
 function App() {
   const [places, setPlaces] = useState([])
@@ -13,6 +14,8 @@ function App() {
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState(' ');
 
+  
+
   useEffect(() => { 
     navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude} }) => {
       setCoordinates({ lat: latitude, lng: longitude })
@@ -20,17 +23,22 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const filteredPlaces = places.filter((place) => place.rating > rating)
-    setFilteredPlaces(filteredPlaces)
-console.log(filteredPlaces.length)
-  }, [rating])
+    const filtered = places.filter((place) => Number(place.rating) > rating);
+    setFilteredPlaces(filtered);
+  }, [rating]);
 
   useEffect(() => {
-    getPlacesData(type, bounds.sw, bounds.ne)
+    if (bounds.sw && bounds.ne) {
+      getPlacesData(type, bounds.sw, bounds.ne)
       .then((data) => {
-        setPlaces(data);
+        setPlaces(data?.filter((place) => place.name && place.num_reviews > 0 ));
+        setFilteredPlaces([]);
+        setRating('')
+        // setIsLoading(false)
       })
-  }, [type, bounds, coordinates]);
+    }
+  }, [type, bounds]);
+
 
   return (
     <>
@@ -46,7 +54,7 @@ console.log(filteredPlaces.length)
           setRating={setRating}
           />
       </Grid>
-      <Grid item xs={12} md={8}>
+      <Grid item xs={12} md={8} style={{ display: flexbox, justifyContent: 'center', alignItems: 'center'}}>
           <Map 
             setCoordinates={setCoordinates}
             setBounds={setBounds}
